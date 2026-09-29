@@ -1,0 +1,479 @@
+/* 
+  every browser has default css -- must be removed or reset such that 
+  all browsers show your ui the same way.
+
+  cascading style sheets?
+  browser default < external style sheets < internal style sheets < inline style sheets
+  never use inline style sheets unless small testing -- implemented using html attributes called style
+  internal style sheets: in head section of the html
+  external style sheets: link tag within the head of the html body to css file
+*/
+
+/* 
+css-selector{
+  css-property: css-value;
+}
+*/
+
+/* CSS variable to store certain design themes */
+:root {
+  --bg-dark: #090d16;
+  --bg-card: #111827;
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --text-main: #f9fafb;
+  --text-model: #9ca3af;
+  --border-color: #374151;
+  --accent: #10b981;
+  --font-family:
+    -apple-system, BlinkMacStyleFont, "Segoe UI", Arial, sans-serif;
+  --transition-speed: 0.2s;
+  font-size: 16px;
+}
+
+/* first reset the browser styling! */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* declare the usage of font family and bg color */
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-family);
+  background-color: var(--bg-dark);
+  /* text font color */
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* styling all the buttons and their classes we have in the html */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 0.75 0.65 0.75 0.65; top right bottom left
+  padding: 0.75rem 1.5rem; x-axis y-axis
+  padding: 0.5rem; all    */
+  padding: 0.75rem 1.5rem; /*internal space between text and border*/
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-speed),
+    transform var(--transition-speed),
+    border-color var(--transition-speed);
+}
+
+/* for keyboard browser using the TAB key */
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+.btn-secondery:hover {
+  background-color: var(bg-card);
+  border-color: var(--text-muted);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 1.125rem;
+}
+
+/* structural layout of the webpage */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  /* important lines of layout */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 2rem;
+  /* rgb colors: 0-255; a: 0-1 */
+  background-color: rgba(9, 13, 25, 0.9);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.brand-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* modern version of margin */
+}
+
+.logo-icon {
+  color: var(--primary);
+}
+
+.nav-menu {
+  /* use flexbox */
+  display: flex;
+  /* justify-content: space-evenly; DO NOT use this if you use gap */
+  align-items: center;
+  gap: 1.5rem; /*1.5 times of 16px where 16px is default fount size of root (html node) */
+}
+
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color var(--transition-speed);
+}
+
+/* add the trigger event (pseudo classes) to trigger the transition in the previous css block of code */
+.nav-link:hover {
+  color: var(--text-main); /*this is animated*/
+}
+
+/* hero section layout */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly; /*or use gap for fixed spacing*/
+  gap: 1.5rem;
+  padding: 6rem, 1.5rem, 4rem, 1.5rem;
+  max-width: 900px;
+  margin: 0 auto; /*this will center an element on the page, only works if width or max-width associated in this block*/
+}
+
+.badge-pill {
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 0.35rem 0.85rem;
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: 3rem;
+  line-height: 1.15;
+  font-weight: 800;
+  margin-bottom: 1.25;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  max-width: 700px;
+}
+
+.cta-group {
+  display: flex;
+  gap: 1rem;
+  /* if you need justify-content and align-items just check your design and use them */
+}
+
+/* 2D layout: features section and pricing matrix section */
+.section-container {
+  max-width: 1100;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+}
+
+/* 2D grid fro features card */
+.features-grid {
+  /* you can layout this using display: flex */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: 8px;
+  transition:
+    transform var(--transition-speed),
+    border-color var(--transition-speed);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  /* you can add more things here */
+}
+
+.feature-icon {
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-description {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* pricing matrix */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.pricing-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform var(--transition-speed);
+}
+
+/* affordance - visual weight to the recommended tier */
+.pricing-card.featured {
+  border: 2px solid var(--primary);
+  background-color: rgba(99, 102, 241, 0.04);
+  transform: scale(1.03);
+}
+
+.popular-tag {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.75rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.tier-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.tier-desc {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.tier-price {
+  margin-bottom: 1.5rem;
+}
+
+.price-val {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.price-unit {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.tier-features {
+  list-style-type: none;
+  margin-bottom: 2rem;
+  flex-grow: 1; /*pushes the button the bottom evenly*/
+}
+
+/* 'tier-features>li' does only the parent, the following includes all child nodes */
+.tier-features li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--accent);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* pseudo elements and FORM styling */
+.tier-features li::before {
+  content: "✅";
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* FORM stylin */
+.form-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  /* ^centering */
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 2.5rem;
+  border-radius: 8px;
+}
+
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.required-mark {
+  color: red;
+}
+
+.form-control {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-main);
+  font-size: 1rem;
+  padding: 0.75rem, 1rem;
+  transition: border-color var(--transition-speed);
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  outline: none;
+  /* box-shadow: x-axisOffset y-axisOffset zOffest shadowlengthHeight color; */
+  box-shadow: 0 0 0 rgba(99, 102, 241, o.2);
+}
+
+.input-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* footer styling */
+.site-footer {
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 1.5rem;
+  margin-top: 4rem;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: var(text-muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--text-main);
+}
+
+/* responsive design for handheld devices */
+/* css media queries */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .pricing-card.featured {
+    transform: none;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}

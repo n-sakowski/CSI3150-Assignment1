@@ -25,40 +25,167 @@
       <!-- hero -->
       <section id="hero" class="hero-section">
         <!-- <div class="badge-pill"></div> -->
-        <h1 class="hero-title"></h1>
-        <p class="hero-subtitle"></p>
+        <h1 class="hero-title">Quality Infrastructure</h1>
+        <p class="hero-subtitle">
+          Key capabilities include latency tracking, log aggregation, and
+          auto-remediation
+        </p>
         <div class="cta-group">
-          <a href=""></a>
-          <a href=""></a>
+          <a href="#tiers" class="btn btn-primary">Explore Options</a>
+          <a href="" class="btn btn-secondary">Check Requirements</a>
         </div>
       </section>
 
       <!-- features -->
       <section id="features" class="features-section">
-        <h2></h2>
+        <h2 class="section-title">Features</h2>
         <div class="features-grid">
-          <article class="feature-card"></article>
-          <article class="feature-card"></article>
-          <article class="feature-card"></article>
-        </div>
-      </section>
-
-      <section id="pricing" class="section-container">
-        <header class="section-header">
-          <h3 class="section-title"></h3>
-          <p class="section-subtitle"></p>
-        </header>
-
-        <div class="tiers-grid">
-          <article class="tier-card"></article>
-          <article class="tier-card-featured"></article>
-          <article class="tier-card"></article>
+          <article class="feature-card">
+            <div class="feature-icon">⌚</div>
+            <h3 class="feature-title">Latency Tracking</h3>
+            <p class="feature-description">
+              Our high-speed internet is designed to reduce your wait as much as
+              possible, and we provide exact feedback on how long you waited.
+            </p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">📄</div>
+            <h3 class="feature-title">Log Aggregation</h3>
+            <p class="feature-description">
+              Logs are taken and sorted securely. Your information will surely
+              never be leaked.
+            </p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">👟</div>
+            <h3 class="feature-title">Auto-Remediation</h3>
+            <p class="feature-description">
+              If there's ever a security issue, it will be fixed quickly and
+              efficiently, no matter the time of day.
+            </p>
+          </article>
         </div>
       </section>
 
       <!-- tiers -->
 
+      <section id="tiers" class="tiers-section">
+        <header class="section-header">
+          <h3 class="section-title">Three Tiers</h3>
+          <p class="section-subtitle">
+            Select the one that works best for your purposes!
+          </p>
+        </header>
+        <div class="tiers-grid">
+          <article class="tier-card">
+            <h3 class="tier-name">Tier 1</h3>
+            <p class="tier-desc">
+              A beginner tier that is perfect for hesitant first-time customers.
+            </p>
+            <div class="tier-price">
+              <span class="price-val">$10</span>
+              <span class="price-unit">/month</span>
+            </div>
+            <ul class="tier-features">
+              <li>basic feature 1</li>
+              <li>basic feature 2</li>
+              <li>basic feature 3</li>
+            </ul>
+            <a href="#register" class="btn btn-outline btn-block">Deploy</a>
+          </article>
+
+          <article class="tier-card-featured">
+            <h3 class="tier-name">Tier 2</h3>
+            <p class="tier-desc">
+              The best value! for those who know how great our services are, you
+              will receive extra priority.
+            </p>
+            <div class="tier-price">
+              <span class="price-val">$20</span>
+              <span class="price-unit">/month</span>
+            </div>
+            <ul class="tier-features">
+              <li>improved feature 1</li>
+              <li>improved feature 2</li>
+              <li>improved feature 3</li>
+            </ul>
+            <a href="#register" class="btn btn-outline btn-block">Deploy</a>
+          </article>
+
+          <article class="tier-card">
+            <h3 class="tier-name">Tier 3</h3>
+            <p class="tier-desc">
+              Perfection. We will bend over backwards for you to ensure flawless
+              service.
+            </p>
+            <div class="tier-price">
+              <span class="price-val">$40</span>
+              <span class="price-unit">/month</span>
+            </div>
+            <ul class="tier-features">
+              <li>flawless feature 1</li>
+              <li>flawless feature 2</li>
+              <li>flawless feature 3</li>
+            </ul>
+            <a href="#register" class="btn btn-outline btn-block">Deploy</a>
+          </article>
+        </div>
+      </section>
+
       <!-- form -->
+
+      <section id="register" class="section-container">
+        <div class="form-wrapper">
+          <header class="section-header">
+            <h2 class="section-title"></h2>
+            <p class="section-subtitle"></p>
+          </header>
+
+          <form action="#" method="post" class="lead-form">
+            <div class="form-group">
+              <label for="work-email" class="form-label">
+                Work Email <span class="required-mark">*</span>
+              </label>
+              <input
+                type="email"
+                name="work-email"
+                id="work-email"
+                class="form-control"
+                placeholder="abc@xyz.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="node-count" class="form-label"> Node Count </label>
+              <input
+                type="number"
+                name="node-count"
+                id="node-count"
+                class="form-control"
+                min="10"
+                max="10000"
+                step="10"
+                placeholder="67"
+              />
+              <span class="input-hint">Min: 10 | Max: 10,000</span>
+            </div>
+
+            <div class="form-group">
+              <label for="requirements" class="form-label"
+                >Throughput Requirements</label
+              >
+              <input
+                type="text"
+                name="requirements"
+                id="requirements"
+                class="form-control"
+                placeholder="enter throughput requirements here"
+              />
+            </div>
+          </form>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">

@@ -18,7 +18,7 @@ css-selector{
 /* CSS variable to store certain design themes */
 :root {
   --bg-dark: #142413;
-  --bg-card: #164e00;
+  --bg-card: #154104;
   --primary: #378137;
   --primary-hover: #44af69;
   --text-main: #f9fafb;
@@ -27,7 +27,7 @@ css-selector{
   --accent: #e9c420;
   --font-family:
     -apple-system, BlinkMacStyleFont, "Segoe UI", Arial, sans-serif;
-  --transition-speed: 0.2s;
+  --transition-speed: 0.4s;
   font-size: 16px;
 }
 
@@ -242,7 +242,8 @@ html {
   /* you can layout this using display: flex */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  gap: 3rem;
+  padding: 0rem 1rem;
 }
 
 .feature-card {
@@ -262,7 +263,7 @@ html {
 }
 
 .feature-icon {
-  font-size: 0.75rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 

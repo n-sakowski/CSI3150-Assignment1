@@ -17,14 +17,14 @@ css-selector{
 
 /* CSS variable to store certain design themes */
 :root {
-  --bg-dark: #090d16;
-  --bg-card: #111827;
-  --primary: #6366f1;
-  --primary-hover: #4f46e5;
+  --bg-dark: #142413;
+  --bg-card: #164e00;
+  --primary: #378137;
+  --primary-hover: #44af69;
   --text-main: #f9fafb;
   --text-model: #9ca3af;
-  --border-color: #374151;
-  --accent: #10b981;
+  --border-color: #ce8d66;
+  --accent: #e9c420;
   --font-family:
     -apple-system, BlinkMacStyleFont, "Segoe UI", Arial, sans-serif;
   --transition-speed: 0.2s;
@@ -65,7 +65,7 @@ html {
   font-weight: 600;
   text-decoration: none;
   border-radius: 6px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   cursor: pointer;
   transition:
     background-color var(--transition-speed),
@@ -101,7 +101,7 @@ html {
 }
 
 .btn-outline {
-  background-color: transparent;
+  background-color: var(--bg-dark);
   color: var(--primary);
   border-color: var(--primary);
 }
@@ -134,8 +134,8 @@ html {
 
   padding: 1rem 2rem;
   /* rgb colors: 0-255; a: 0-1 */
-  background-color: rgba(9, 13, 25, 0.9);
-  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  border-bottom: 8px solid var(--border-color);
 }
 
 .brand-logo {
@@ -179,7 +179,7 @@ html {
   align-items: center;
   justify-content: space-evenly; /*or use gap for fixed spacing*/
   gap: 1.5rem;
-  padding: 6rem, 1.5rem, 4rem, 1.5rem;
+  padding: 5rem, 1.5rem, 4rem, 1.5rem;
   max-width: 900px;
   margin: 0 auto; /*this will center an element on the page, only works if width or max-width associated in this block*/
 }
@@ -190,7 +190,7 @@ html {
   color: var(--accent);
   padding: 0.35rem 0.85rem;
   background-color: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  border: 4px solid rgba(16, 185, 129, 0.3);
   border-radius: 9999px;
   margin-bottom: 1.5rem;
 }
@@ -247,7 +247,7 @@ html {
 
 .feature-card {
   background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
+  border: 4px solid var(--border-color);
   padding: 2rem;
   border-radius: 8px;
   transition:
@@ -278,16 +278,17 @@ html {
 
 /* pricing matrix */
 
-.pricing-grid {
+.tiers-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  padding: 2rem;
   gap: 2rem;
   align-items: stretch;
 }
 
-.pricing-card {
+.tier-card {
   background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
+  border: 4px solid var(--border-color);
   padding: 2.5rem 2rem;
   border-radius: 8px;
   display: flex;
@@ -297,9 +298,9 @@ html {
 }
 
 /* affordance - visual weight to the recommended tier */
-.pricing-card.featured {
-  border: 2px solid var(--primary);
-  background-color: rgba(99, 102, 241, 0.04);
+.tier-card.featured {
+  border: 6px solid var(--accent);
+  background-color: rgba(0, 255, 26, 0.395);
   transform: scale(1.03);
 }
 
@@ -308,7 +309,7 @@ html {
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: var(--primary);
+  background-color: var(--accent);
   color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
@@ -335,6 +336,7 @@ html {
 .price-val {
   font-size: 2rem;
   font-weight: 800;
+  padding: 0.5rem;
 }
 
 .price-unit {
@@ -351,7 +353,7 @@ html {
 /* 'tier-features>li' does only the parent, the following includes all child nodes */
 .tier-features li {
   padding: 0.5rem 0;
-  border-bottom: 1px solid var(--accent);
+  border-bottom: 4px solid var(--accent);
   font-size: 0.9rem;
   color: var(--text-muted);
 }
@@ -370,7 +372,7 @@ html {
   margin: 0 auto;
   /* ^centering */
   background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
+  border: 4px solid var(--border-color);
   padding: 2.5rem;
   border-radius: 8px;
 }
@@ -398,7 +400,7 @@ html {
 
 .form-control {
   background-color: var(--bg-dark);
-  border: 1px solid var(--border-color);
+  border: 4px solid var(--border-color);
   border-radius: 6px;
   color: var(--text-main);
   font-size: 1rem;
@@ -420,7 +422,7 @@ html {
 
 /* footer styling */
 .site-footer {
-  border-top: 1px solid var(--border-color);
+  border-top: 4px solid var(--border-color);
   padding: 2rem 1.5rem;
   margin-top: 4rem;
 }
@@ -467,7 +469,7 @@ html {
     width: 100%;
   }
 
-  .pricing-card.featured {
+  .tier-card.featured {
     transform: none;
   }
 
